@@ -1,0 +1,44 @@
+[project]
+name = "vector-db-benchmark"
+version = "0.9.0"
+description = "A benchmarking tool for comparing vector database performance across different databases, embedding models, and document types. Local-first with optional AWS/S3 integration."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.12"
+dependencies = [
+    "black>=25.1.0",
+    "boto3>=1.40.47",
+    "chromadb>=1.0.12",
+    "ipykernel>=6.29.5",
+    "lancedb>=0.23.0",
+    "langchain-text-splitters>=0.3.8",
+    "loguru>=0.7.3",
+    "pandas>=2.3.0",
+    "psutil>=7.0.0",
+    "pydantic>=2.11.5",
+    "pymilvus>=2.5.11",
+    "pypdf2>=3.0.1",
+    "python-dotenv>=1.1.0",
+    "qdrant-client>=1.14.2",
+    "ruff>=0.12.2",
+]
+
+[project.scripts]
+vector-db-benchmark = "vector_db_benchmark.benchmark.main:main"
+
+[project.optional-dependencies]
+dev = [
+    "black>=25.1.0",
+    "ruff>=0.12.2",
+]
+local_models = [
+    "sentence-transformers>=4.1.0",
+]
+benchmark = [
+    "matplotlib>=3.10.3",
+    "tqdm>=4.67.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
